@@ -1,0 +1,1 @@
+Here will be collected all the information from java course
