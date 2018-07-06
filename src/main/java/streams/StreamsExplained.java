@@ -33,36 +33,6 @@ public class StreamsExplained {
         });
     }
 
-    // several different ways to initiate streams
-    public static void main1(String[] args) throws FileNotFoundException {
-        // stream from collections
-        Stream<Map.Entry<String, String>> stream1 = new HashMap<String, String>().entrySet().stream();
-        Stream<String> stream2 = new HashMap<String, String>().keySet().stream();
-        Stream<Integer> stream3 = new ArrayList<Integer>().stream();
-        Stream<Character> stream4 = new LinkedList<Character>().stream();
-        Stream<String> stream5 = new HashSet<String>().stream();
-        Stream<Float> stream6 = new TreeSet<Float>().stream();
-
-        // stream from array
-        Stream<String> stream7 = Arrays.stream(months);
-        // nested
-        Stream<int[]> stream8 = Arrays.stream(nested);
-        // nested, flatted
-        Stream<Integer> stream9 = Arrays.stream(nested)
-                .flatMap((Function<int[], Stream<Integer>>) ints -> Arrays.stream(ints).boxed());
-
-        // lines from text-file
-        Stream<String> stream10 = new BufferedReader(new FileReader(new File("path", "filename"))).lines();
-
-        // stream from ANY iterable
-        Stream<String> stream11 = StreamSupport.stream(new Months1().spliterator(), false);
-
-        // integer stream (for-loop)
-        IntStream intstream1 = IntStream.range(0, 10); // 0..9,    10 excluded
-        IntStream intstream2 = IntStream.rangeClosed(0, 10); // 0..10    10 included
-        IntStream intstream3 = IntStream.generate(() -> (int) (Math.random() * 100)).limit(10);// 10 random integers from 0-100 range
-    }
-
     public static void main2(String[] args) {
         for (int i = 1 ; i<=10 ; i++ ) {
             System.out.print(i + " ");
@@ -289,6 +259,5 @@ public class StreamsExplained {
                 .collect(Collectors.joining(" "));
         System.out.println(s);
         System.out.println(collect);
-
     }
 }
