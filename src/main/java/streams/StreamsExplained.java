@@ -48,7 +48,8 @@ public class StreamsExplained {
         // nested
         Stream<int[]> stream8 = Arrays.stream(nested);
         // nested, flatted
-        Stream<Integer> stream9 = Arrays.stream(nested).flatMap((Function<int[], Stream<Integer>>) ints -> Arrays.stream(ints).boxed());
+        Stream<Integer> stream9 = Arrays.stream(nested)
+                .flatMap((Function<int[], Stream<Integer>>) ints -> Arrays.stream(ints).boxed());
 
         // lines from text-file
         Stream<String> stream10 = new BufferedReader(new FileReader(new File("path", "filename"))).lines();
