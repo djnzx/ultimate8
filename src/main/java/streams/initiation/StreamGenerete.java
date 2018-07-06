@@ -14,9 +14,9 @@ public class StreamGenerete {
         Stream<String> generate = Stream.generate(new Supplier<String>() {
             @Override
             public String get() {
-                return IntStream
-                        .generate(() -> (int) (65 + Math.random() * 26))
-                        .limit(10).mapToObj(value -> (char) value + "")
+                return Stream
+                    .generate(() -> (char) (65 + Math.random() * 26))
+                        .limit(10).map(value -> String.valueOf(value))
                         .collect(Collectors.joining());
             }
         })
