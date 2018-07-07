@@ -11,15 +11,16 @@ public class StreamGenerete {
                 .generate(() -> (int) (Math.random() * 100))
                 .limit(10);// 10 random integers from 0-100 range
 
-        Stream<String> generate = Stream.generate(new Supplier<String>() {
-            @Override
-            public String get() {
-                return IntStream
-                        .generate(() -> (int) (65 + Math.random() * 26))
-                        .limit(10).mapToObj(value -> (char) value + "")
-                        .collect(Collectors.joining());
-            }
-        })
+        Stream<String> generate = Stream
+                .generate(new Supplier<String>() {
+                    @Override
+                    public String get() {
+                        return Stream
+                                .generate(() -> (char) (65 + Math.random() * 26))
+                                .limit(10).map(String::valueOf)
+                                .collect(Collectors.joining());
+                    }
+                })
                 .limit(10);
     }
 }
