@@ -12,7 +12,7 @@ import java.util.stream.StreamSupport;
 
 import static java.util.stream.Collectors.joining;
 
-public class StreamsExplained {
+public class StreamsExplainedRaw {
 
     private static final String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     private static final int[][] nested = {{1,2,3}, {4,5}};
