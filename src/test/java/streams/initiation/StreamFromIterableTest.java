@@ -16,6 +16,9 @@ import static org.hamcrest.beans.HasPropertyWithValue.hasProperty;
 
 public class StreamFromIterableTest {
 
+    /*
+    *  https://code.google.com/archive/p/hamcrest/wikis/Tutorial.wiki
+     */
     @Test
     public void test01() {
         Iterable<String> iterable
