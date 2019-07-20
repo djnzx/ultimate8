@@ -1,5 +1,8 @@
 package streams.examples6;
 
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.*;
@@ -24,16 +27,20 @@ public class Distinct {
                 .forEach(e -> System.out.printf("%s:%d\n",e.getKey(),e.getValue()));
     }
 
-    public static void main1(String[] args) {
-        Stream
+    public static void main(String[] args) {
+//        Map<Boolean, List<Character>> collect =
+        Map<Boolean, Long> collect =
+                Stream
                 .generate(() -> ((char) ('A' + Math.random() * 26)))
                 .limit(50)
                 //.collect(groupingBy(c->rule(c), counting()))
-                .collect(groupingBy(Distinct::rule, counting()))
-                .forEach((key, cnt) -> System.out.printf("%s: %s\n", key?"vovel":"consonant", cnt));
+                //.collect(groupingBy(Distinct::rule, toList())); // Map<Boolean, List<Character>>
+                .collect(groupingBy(Distinct::rule, counting())); // Map<Boolean, Long>
+
+            collect.forEach((key, cnt) -> System.out.printf("%s: %s\n", key ? "vovel" : "consonant", cnt));
     }
 
-    public static void main(String[] args) {
+    public static void main11(String[] args) {
         Stream
                 .generate(() -> ((char) ('A' + Math.random() * 26)))
                 .limit(50)
