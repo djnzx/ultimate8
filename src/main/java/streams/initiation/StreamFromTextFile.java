@@ -8,6 +8,11 @@ import java.util.stream.Stream;
 
 public class StreamFromTextFile {
     public static void main(String[] args) throws FileNotFoundException {
-        Stream<String> stream10 = new BufferedReader(new FileReader(new File("path", "filename"))).lines();
+        Stream<String> stream10 =
+                new BufferedReader(
+                        new FileReader(
+                                new File("path", "filename")
+                        )
+                ).lines();
     }
 }

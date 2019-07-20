@@ -8,6 +8,7 @@ public class StreamFromString {
         System.out.println();
         s.chars().mapToObj(c->(char)c).forEach(c-> System.out.print(c+" "));
         System.out.println();
+
         s.codePoints().forEach(c-> System.out.print(c+" "));
         System.out.println();
         s.codePoints().mapToObj(c->(char)c).forEach(c-> System.out.print(c+" "));
