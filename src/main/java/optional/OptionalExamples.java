@@ -3,8 +3,12 @@ package optional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class OptionalExamples {
+
   public List<String> data1() {
     return new ArrayList<String>() {{
       add("One");
@@ -121,11 +125,21 @@ public class OptionalExamples {
 
   public static void main(String[] args) {
     OptionalExamples ox = new OptionalExamples();
-    ox.ex01();
-    ox.ex02();
-    ox.ex03();
-    ox.ex04();
+//    ox.ex01();
+//    ox.ex02();
+//    ox.ex03();
+//    ox.ex04();
 //        ox.ex05();
-    ox.ex06();
+//    ox.ex06();
+//    ox.data1().stream() // Stream<String>
+    List<String> data1 = ox.data1();
+    Stream<String> stream = data1.stream();
+    stream                                  // Stream<String>
+        .map(s -> Optional.ofNullable(s))   // Stream<Optional<String>> : 9
+        .filter(o -> o.isPresent())          // Stream<Optional<String>> : 3
+        .map(o -> o.get())                  // Stream<String> : 3
+        .map(s -> String.format("* %s", s)) // Stream<String> : 3
+        .forEach(s -> System.out.println(s));
+
   }
 }
