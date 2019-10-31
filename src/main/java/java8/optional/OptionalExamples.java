@@ -125,15 +125,31 @@ public class OptionalExamples {
     System.out.println("----------");
   }
 
+  // no need to use any if
+  private String process(String origin) {
+    return Optional.ofNullable(origin)
+        .map(String::toUpperCase)
+        .map(s -> String.format("<< %s >>", s))
+        .orElse(">> null was given <<");
+  }
+
+  public void example9() {
+    System.out.println("Example #9");
+    System.out.println(process("Hello"));
+    System.out.println(process(null));
+    System.out.println("----------");
+  }
+
   public static void main(String[] args) {
     OptionalExamples ox = new OptionalExamples();
-    ox.example1();
-    ox.example2();
-    ox.example3();
-    ox.example4();
-    ox.example5();
-    ox.example6();
-    ox.example7();
-    ox.example8();
+//    ox.example1();
+//    ox.example2();
+//    ox.example3();
+//    ox.example4();
+//    ox.example5();
+//    ox.example6();
+//    ox.example7();
+//    ox.example8();
+    ox.example9();
   }
 }
