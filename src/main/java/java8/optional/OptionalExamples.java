@@ -49,12 +49,12 @@ public class OptionalExamples {
     System.out.println("----------");
   }
 
-  String eager() {
+  private String eager() {
     System.out.println("call: eager()");
     return "I'm Eager";
   }
 
-  String lazy() {
+  private String lazy() {
     System.out.println("call: lazy()");
     return "I'm Lazy";
   }
