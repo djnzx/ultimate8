@@ -1,5 +1,7 @@
 package java8.optional;
 
+import source.Source;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -7,23 +9,9 @@ import java.util.stream.Stream;
 
 public class OptionalExamples {
 
-  public List<String> data1() {
-    return new ArrayList<String>() {{
-      add("One");
-      add(null);
-      add("Two");
-      add(null);
-      add(null);
-      add("Three");
-      add(null);
-      add(null);
-      add(null);
-    }};
-  }
-
   // different way of initialization
-  public void ex00() {
-    System.out.println("Example #0");
+  public void example1() {
+    System.out.println("Example #1");
     // data
     String s1 = "Definitely not null value";
     String s2 = "Possibly nullable";
@@ -37,9 +25,9 @@ public class OptionalExamples {
   }
 
   // the problem
-  public void ex01() {
-    System.out.println("Example #1");
-    List<String> data = data1();
+  public void example2() {
+    System.out.println("Example #2");
+    List<String> data = Source.list_with_nulls();
     for (String s: data) {
       if (s != null) {
         System.out.println(s);
@@ -49,9 +37,10 @@ public class OptionalExamples {
   }
 
   // the solution
-  public void ex02() {
-    System.out.println("Example #2");
-    data1().stream()
+  public void example3() {
+    System.out.println("Example #3");
+    List<String> data = Source.list_with_nulls();
+    data.stream()
         .map(s -> Optional.ofNullable(s))
         .map(o -> o.map(s -> String.format("<<%s>>", s)))
         .filter(o -> o.isPresent())
@@ -71,9 +60,10 @@ public class OptionalExamples {
   }
 
   // different extractor with eager approach (used for EASY-to-calculate values)
-  public void ex03() {
-    System.out.println("Example #3");
-    data1().stream()
+  public void example4() {
+    System.out.println("Example #4");
+    List<String> data = Source.list_with_nulls();
+    data.stream()
         .map(s -> Optional.ofNullable(s))
         .map(o -> o.map(s -> String.format("<<%s>>", s)))
         .map(o -> o.orElse(eager()))
@@ -81,9 +71,10 @@ public class OptionalExamples {
     System.out.println("----------");
   }
   // different extractor with eager approach (used for HARD-to-calculate values)
-  public void ex04() {
-    System.out.println("Example #4");
-    data1().stream()
+  public void example5() {
+    System.out.println("Example #5");
+    List<String> data = Source.list_with_nulls();
+    data.stream()
         .map(s -> Optional.ofNullable(s))
         .map(o -> o.map(s -> String.format("<<%s>>", s)))
         .map(o -> o.orElseGet(() -> lazy()))
@@ -91,9 +82,10 @@ public class OptionalExamples {
     System.out.println("----------");
   }
   // different extractor with eager approach (used for problems)
-  public void ex05() {
-    System.out.println("Example #5");
-    data1().stream()
+  public void example6() {
+    System.out.println("Example #6");
+    List<String> data = Source.list_with_nulls();
+    data.stream()
         .map(s -> Optional.ofNullable(s))
         .map(o -> o.map(s -> String.format("<<%s>>", s)))
         .map(o -> o.orElseThrow(() -> new IllegalArgumentException("NULL was given!")))
@@ -101,8 +93,8 @@ public class OptionalExamples {
     System.out.println("----------");
   }
   // manual way
-  public void ex06() {
-    System.out.println("Example #6");
+  public void example7() {
+    System.out.println("Example #7");
     Optional<String> opt1 = Optional.of("yes");
     Optional<String> opt2 = Optional.empty();
 
@@ -120,24 +112,28 @@ public class OptionalExamples {
     System.out.println("----------");
   }
 
-
-  public static void main(String[] args) {
-    OptionalExamples ox = new OptionalExamples();
-//    ox.ex01();
-//    ox.ex02();
-//    ox.ex03();
-//    ox.ex04();
-//        ox.ex05();
-//    ox.ex06();
-//    ox.data1().stream() // Stream<String>
-    List<String> data1 = ox.data1();
-    Stream<String> stream = data1.stream();
+  public void example8() {
+    System.out.println("Example #8");
+    List<String> data = Source.list_with_nulls();
+    Stream<String> stream = data.stream();
     stream                                  // Stream<String>
         .map(s -> Optional.ofNullable(s))   // Stream<Optional<String>> : 9
         .filter(o -> o.isPresent())          // Stream<Optional<String>> : 3
         .map(o -> o.get())                  // Stream<String> : 3
         .map(s -> String.format("* %s", s)) // Stream<String> : 3
         .forEach(s -> System.out.println(s));
+    System.out.println("----------");
+  }
 
+  public static void main(String[] args) {
+    OptionalExamples ox = new OptionalExamples();
+    ox.example1();
+    ox.example2();
+    ox.example3();
+    ox.example4();
+    ox.example5();
+    ox.example6();
+    ox.example7();
+    ox.example8();
   }
 }

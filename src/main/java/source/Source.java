@@ -61,4 +61,18 @@ public class Source {
       return Arrays.asList("Testing", "Iterable", "conversion", "to", "Stream");
   }
 
+  public static List<String> list_with_nulls() {
+    return new ArrayList<String>() {{
+      add("One");
+      add(null);
+      add("Two");
+      add(null);
+      add(null);
+      add("Three");
+      add(null);
+      add(null);
+      add(null);
+    }};
+  }
+
 }
