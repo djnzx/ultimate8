@@ -1,1 +1,1 @@
-Here will be collected all the information from java course
+Interesting topics about java8 collected here

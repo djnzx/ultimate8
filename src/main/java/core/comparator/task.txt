@@ -1,0 +1,14 @@
+Task:
+
+1. Fill the ArrayList of length 30 with random numbers from the range 0..100
+
+2. sort them in following way:
+  - even - in descending order
+  - odd - in ascending order
+  - even first, odd - second
+
+3. Print the initial array and sorted one.
+
+ex:
+[26, 35, 93, 38, 78, 7, 18, 33, 19, 1, 70, 6, 46, 82, 71, 51, 40, 71, 41, 61, 73, 65, 94, 13, 49, 10, 91, 8, 73, 34]
+[94, 82, 78, 70, 46, 40, 38, 34, 26, 18, 10, 8, 6, 1, 7, 13, 19, 33, 35, 41, 49, 51, 61, 65, 71, 71, 73, 73, 91, 93]
