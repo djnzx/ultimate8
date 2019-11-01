@@ -1,0 +1,16 @@
+old:
+java.util.Date
+java.util.Calendar.
+problems:
+  - thread-safety
+  - mutability
+
+new:
+java.time.*
+improvements:
+  - immutable
+  - thread-safe
+  - easy to understand
+
+
+

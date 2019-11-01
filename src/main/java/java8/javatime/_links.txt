@@ -1,0 +1,6 @@
+https://www.oracle.com/technical-resources/articles/java/jf14-date-time.html
+https://www.baeldung.com/java-8-date-time-intro
+https://habr.com/en/post/274811/
+https://habr.com/ru/post/274905/
+https://www.w3schools.com/java/java_date.asp
+
