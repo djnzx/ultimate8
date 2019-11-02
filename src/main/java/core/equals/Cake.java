@@ -2,7 +2,7 @@ package core.equals;
 
 public class Cake {
 
-  private final int size;
+  protected final int size;
 
   public Cake(int size) {
     this.size = size;

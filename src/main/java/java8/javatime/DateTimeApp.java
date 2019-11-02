@@ -6,6 +6,8 @@ import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Locale;
 import java.util.Set;
 
@@ -30,10 +32,10 @@ public class DateTimeApp {
     LocalTime now5 = LocalTime.of(15, 10, 33);
     LocalTime now6 = LocalTime.of(15, 10, 33, 677);
     LocalTime now7 = LocalTime.parse("5:30:12");
-    LocalTime now8 = LocalTime.MAX;
-    LocalTime now9 = LocalTime.MIN;
-    LocalTime nowA = LocalTime.NOON;
-    LocalTime nowB = LocalTime.MIDNIGHT;
+    LocalTime now8 = LocalTime.MAX;      // 23:59:59.999999999
+    LocalTime now9 = LocalTime.MIN;      // 00:00
+    LocalTime nowA = LocalTime.NOON;     // 12:00
+    LocalTime nowB = LocalTime.MIDNIGHT; // 00:00
 
     int h = now1.getHour();
     int m = now1.getMinute();
@@ -41,12 +43,24 @@ public class DateTimeApp {
     int ns = now1.getNano();
 
     // how to truncate
-    LocalTime now4new = now4.truncatedTo(ChronoUnit.SECONDS);
+    LocalTime now4new1 = now4.truncatedTo(ChronoUnit.SECONDS);
+    LocalTime now4new2 = now4.truncatedTo(ChronoUnit.MINUTES);
+    LocalTime now4new3 = now4.truncatedTo(ChronoUnit.HOURS);
 
     String formatted = now1.format(DateTimeFormatter.ISO_LOCAL_TIME);
     System.out.println(formatted);
 
-    now1.compareTo(now2);
+    int i = now1.compareTo(now2);
+    ArrayList<LocalTime> localTimes = new ArrayList<>();
+    Collections.sort(localTimes);
+    // given string must be represented in ISO format HH:MM:SS.nnnnnnnnn
+    // can be shortened to any nano second digit, or to seconds, or to minutes
+    // HH:MM:SS or HH:MM
+    LocalTime ltime = LocalTime.parse("05:30:12.123456789");
+    LocalTime ltime2 = LocalTime.parse("05:30:12.123456789", DateTimeFormatter.ofPattern("HH"));
+
+    LocalTime localTime99 = ltime.plusHours(5);
+    LocalTime localTime98 = ltime.plus(3, ChronoUnit.MINUTES);
   }
 
   /**
@@ -70,7 +84,11 @@ public class DateTimeApp {
     boolean leapYear = now1.isLeapYear();
 
     LocalDate tomorrow = now1.plusDays(1);
-    LocalDate monthAgo = LocalDate.now().minus(1, ChronoUnit.MONTHS);
+    LocalDate monthAgo =  LocalDate.now().minus(1, ChronoUnit.MONTHS);
+    LocalDate monthAgo1 = LocalDate.now().minus(30, ChronoUnit.DAYS);
+    // given string must be represented in ISO format (yyyy-MM-dd) without time
+    LocalDate ldate = LocalDate.parse("2019-11-01");
+    LocalDate ldate22 = LocalDate.parse("2019.11.01", DateTimeFormatter.ofPattern("DD.MM.YYYY"));
   }
 
   /**
@@ -100,6 +118,10 @@ public class DateTimeApp {
     LocalDateTime localDateTime8 = localDateTime1.minus(2, ChronoUnit.SECONDS);
     int hour = localDateTime8.getHour();
     int minute = localDateTime8.getMinute();
+    LocalDateTime ldt1 = LocalDateTime.parse("2019-11-01T11:43:12.123456789");
+    LocalDateTime ldt2 = LocalDateTime.parse("2019-11-01T11:43:12");
+    LocalDateTime ldt3 = LocalDateTime.parse("2019-11-01T11:43");
+    System.out.println(ldt3);
   }
 
   /**
@@ -196,23 +218,9 @@ public class DateTimeApp {
     System.out.println(d5);
   }
 
-  private void parsing() {
-    // given string must be represented in ISO format (yyyy-MM-dd) without time
-    LocalDate ldate = LocalDate.parse("2019-11-01");
-    // given string must be represented in ISO format HH:MM:SS.nnnnnnnnn
-    // can be shortened to any nano second digit, or to seconds, or to minutes
-    // HH:MM:SS or HH:MM
-    LocalTime ltime = LocalTime.parse("05:30:12.123456789");
-
-    LocalDateTime ldt1 = LocalDateTime.parse("2019-11-01T11:43:12.123456789");
-    LocalDateTime ldt2 = LocalDateTime.parse("2019-11-01T11:43:12");
-    LocalDateTime ldt3 = LocalDateTime.parse("2019-11-01T11:43");
-    System.out.println(ldt3);
-
-  }
-
   public static void main(String[] args) {
     DateTimeApp app = new DateTimeApp();
+    app.formatting();
   }
 
 }
