@@ -1,0 +1,2 @@
+here will be collected interesting examples
+how to use `String.format(...)` or `System.out.printf(...)`
