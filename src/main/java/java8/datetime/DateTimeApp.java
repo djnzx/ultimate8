@@ -1,4 +1,4 @@
-package java8.javatime;
+package java8.datetime;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -140,7 +140,6 @@ public class DateTimeApp {
     long days = ChronoUnit.DAYS.between(start, finish); // 31
 
     Period period3 = Period.ofMonths(3);
-
     // date
     LocalDateTime ldt = LocalDateTime.now();
     // shift
