@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 public class MonthsApp {
     public static void main(String[] args) {
-        Months1 months1 = new Months1();
+        Months months1 = new Months();
         Months2 months2 = new Months2();
 
         System.out.println("print by advanced for statement (our iterator)");
