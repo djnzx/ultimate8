@@ -14,7 +14,8 @@ public class Service<A> {
     Cursor cursor = new Cursor();
     return Stream
         .generate(() -> next(cursor, size, batchSize))
-        .takeWhile(as -> !as.isEmpty())
+        // we need JAVA9 for this feature
+//        .takeWhile(as -> !as.isEmpty())
         .flatMap(List::stream);
   }
 
