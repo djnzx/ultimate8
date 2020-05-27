@@ -1,0 +1,24 @@
+The task is:
+
+1. to recall the task from homework #1
+
+2. reconsider it in OOP approach.
+
+3. to represent the Event and Events in separate classes
+
+4. to feel the difference, why we separated it into different classes
+
+5. add extra functionality like:
+    - you enter any year.
+    - the program finds the closest event to this year
+    - if you were able to choose the right answer from the first try
+      - program prints "You are brilliant!"
+    - if you were able to choose the right answer in the next 5 tries
+      - program prints "You are so clever!"
+    - if you weren't able to find the right answer in 5 tries
+      - program prints "Keep learning!"
+    - any your answer should be followed with a comment: "too big" or "too small"
+
+6. keep track of all user's steps
+   by saving all the data in the dedicated data structure like ArrayList
+

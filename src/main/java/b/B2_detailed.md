@@ -1,0 +1,112 @@
+# Java Core Detailed Syllabus
+
+## Lesson 6
+- OOP main concepts
+  - abstraction: it works, it has a contract, I don't want to know how it works
+  - encapsulation: put data and code together into the one box
+  - polymorphism: different behavior based on subtyping
+  - inheritance
+- OOP idea - split declaration, instantiation (object creation) and behavior
+- classes / objects / instances
+- towards OOP
+  - how to make our code OOP
+  - steps, entities, structure. thinking in terms of responsibilities
+- default values for class fields / members
+- equals
+- Java Memory Model:
+  - all objects in the Heap
+  - all static in the class loader area
+  - all references to the objects in the stack 
+- Streams
+  - intro
+- Collections
+  - intro
+- CLASS CODING: zoo
+  
+## Lesson 7
+- CLASS CODING: geometric figures
+- constructors: primary, secondary
+- interfaces, abstract classes
+- Streams
+  - basics
+- Collections
+  - basics
+- comparing objects
+- equals
+- towards lambda and method references (java 8)
+  - anonymous classes
+  - functional interfaces
+  - lambdas
+  - method reference
+  - constructor reference
+- internal / nested classes
+
+## Lesson 8
+- collections
+  - generics in details
+  - list: ArrayList, LinkedList
+  - set: HashSet, TreeSet
+  - map: HashMap, TreeMap
+- different types of classes: Structural, POJO, Beans
+- comparing objects
+- equals, hashcode, contract between equals and hashcode
+- mutability / immutability
+- visibility modifiers:
+  - private, protected, public, default (package protected)
+  - visibility modification during inheritance
+  - multiple inheritance
+- getters / setters
+- maven
+  - dependencies
+- Testing Java code - basic
+  - junit
+- Streams (java 8)
+  - initiating (from collections, from any structures, )
+  - processing
+  - terminating (collect/group/foreach)
+  - parallel
+- null
+  - Optional
+- Exceptions, handling: 
+  - errors, checked, unchecked
+  - try catch finally
+- CLASS CODING: collections, hashcode, equals, set, list, streams
+
+## Lesson 9
+- collections
+  - Comparator / Comparable
+  - Iterator / Iterable
+  - Queue, PriorityQueue
+  - Linked List
+- SOLID
+- OOP patterns:
+  - composition
+  - DAO
+  - MVC
+  - building
+    - builder
+    - factory
+  - behavior
+    - facade
+    - connector
+
+## Lesson 10
+- I/O
+  - console, file, socket, stream
+  - encoding: ASCII, UTF16, UTF8
+  - try with resources
+- NIO
+- Date / Time
+- Testing Java code - advanced
+  - assertj
+  - hamcrest (matchers)
+- logging
+- prefix / infix notation
+- regular expressions basics (RegEx)
+- cutting corners by using interfaces
+- lombok
+- maven
+  - dependencies
+  - project properties
+  - build automation
+  - tests automation
